@@ -1,0 +1,531 @@
+rakash@localhost:/usr/local/share/bochs$ bochs
+========================================================================
+                       Bochs x86 Emulator 2.6.8
+                Built from SVN snapshot on May 3, 2015
+                  Compiled on Oct 28 2020 at 17:29:59
+========================================================================
+00000000000i[      ] BXSHARE not set. using compile time default '/usr/local/share/bochs'
+00000000000i[      ] reading configuration from bochsrc.txt
+------------------------------
+Bochs Configuration: Main Menu
+------------------------------
+
+This is the Bochs Configuration Interface, where you can describe the
+machine that you want to simulate.  Bochs has already searched for a
+configuration file (typically called bochsrc.txt) and loaded it if it
+could be found.  When you are satisfied with the configuration, go
+ahead and start the simulation.
+
+You can also start bochs with the -q option to skip these menus.
+
+1. Restore factory default configuration
+2. Read options from...
+3. Edit options
+4. Save options to...
+5. Restore the Bochs state from...
+6. Begin simulation
+7. Quit now
+
+Please choose one: [6] 6
+00000000000i[      ] installing x module as the Bochs GUI
+00000000000i[      ] using log file /usr/share/bochs/bochslog.txt
+00000000000e[IO    ] Couldn't open log file: /usr/share/bochs/bochslog.txt, using stderr instead
+00000000000i[      ] Bochs x86 Emulator 2.6.8
+00000000000i[      ]   Built from SVN snapshot on May 3, 2015
+00000000000i[      ] Compiled on Oct 28 2020 at 17:29:59
+00000000000i[      ] System configuration
+00000000000i[      ]   processors: 1 (cores=1, HT threads=1)
+00000000000i[      ]   A20 line support: yes
+00000000000i[      ] IPS is set to 4000000
+00000000000i[      ] CPU configuration
+00000000000i[      ]   SMP support: no
+00000000000i[      ]   level: 6
+00000000000i[      ]   APIC support: xapic
+00000000000i[      ]   FPU support: yes
+00000000000i[      ]   MMX support: yes
+00000000000i[      ]   3dnow! support: no
+00000000000i[      ]   SEP support: yes
+00000000000i[      ]   SIMD support: sse2
+00000000000i[      ]   XSAVE support: no 
+00000000000i[      ]   AES support: no
+00000000000i[      ]   SHA support: no
+00000000000i[      ]   MOVBE support: no
+00000000000i[      ]   ADX support: no
+00000000000i[      ]   x86-64 support: no
+00000000000i[      ]   MWAIT support: yes
+00000000000i[      ] Optimization configuration
+00000000000i[      ]   RepeatSpeedups support: no
+00000000000i[      ]   Fast function calls: no
+00000000000i[      ]   Handlers Chaining speedups: no
+00000000000i[      ] Devices configuration
+00000000000i[      ]   NE2000 support: no
+00000000000i[      ]   PCI support: yes, enabled=yes
+00000000000i[      ]   SB16 support: no
+00000000000i[      ]   USB support: no
+00000000000i[      ]   VGA extension support: vbe
+00000000000i[MEM0  ] allocated memory at 0x7fb62701f010. after alignment, vector=0x7fb627020000
+00000000000i[MEM0  ] 32.00MB
+00000000000i[MEM0  ] mem block size = 0x00100000, blocks=32
+00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('/usr/local/share/bochs/BIOS-bochs-latest')
+00000000000i[PLUGIN] init_dev of 'pci' plugin device by virtual method
+00000000000i[DEV   ] i440FX PMC present at device 0, function 0
+00000000000i[PLUGIN] init_dev of 'pci2isa' plugin device by virtual method
+00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
+00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
+00000000000i[CMOS  ] Using local time for initial clock
+00000000000i[CMOS  ] Setting initial clock to: Wed Oct 28 18:57:19 2020 (time0=1603891639)
+00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
+00000000000i[DMA   ] channel 4 used by cascade
+00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'vga' plugin device by virtual method
+00000000000i[MEM0  ] Register memory access handlers: 0x0000000a0000 - 0x0000000bffff
+00000000000i[VGA   ] interval=200000, mode=realtime
+00000000000i[MEM0  ] Register memory access handlers: 0x0000e0000000 - 0x0000e0ffffff
+00000000000i[BXVGA ] VBE Bochs Display Extension Enabled
+00000000000i[XGUI  ] test_alloc_colors: 16 colors available out of 16 colors tried
+00000000000i[XGUI  ] font 8 wide x 16 high, display depth = 24
+00000000000i[MEM0  ] rom at 0xc0000/41472 ('/usr/local/share/bochs/VGABIOS-lgpl-latest')
+00000000000i[PLUGIN] init_dev of 'floppy' plugin device by virtual method
+00000000000i[DMA   ] channel 2 used by Floppy Drive
+00000000000i[FLOPPY] fd0: '/home/prakash/Documents/learnin_bootloader/chapter5_2/os-image' ro=0, h=2,t=80,spt=18
+00000000000i[PLUGIN] init_dev of 'acpi' plugin device by virtual method
+00000000000i[DEV   ] ACPI Controller present at device 1, function 3
+00000000000i[PLUGIN] init_dev of 'ioapic' plugin device by virtual method
+00000000000i[IOAPIC] initializing I/O APIC
+00000000000i[MEM0  ] Register memory access handlers: 0x0000fec00000 - 0x0000fec00fff
+00000000000i[IOAPIC] IOAPIC enabled (base address = 0xfec00000)
+00000000000i[PLUGIN] init_dev of 'keyboard' plugin device by virtual method
+00000000000i[KBD   ] will paste characters every 400 keyboard ticks
+00000000000i[PLUGIN] init_dev of 'harddrv' plugin device by virtual method
+00000000000i[HD    ] Using boot sequence floppy, none, none
+00000000000i[HD    ] Floppy boot signature check is enabled
+00000000000i[PLUGIN] init_dev of 'pci_ide' plugin device by virtual method
+00000000000i[DEV   ] PIIX3 PCI IDE controller present at device 1, function 1
+00000000000i[PLUGIN] init_dev of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'speaker' plugin device by virtual method
+00000000000e[PCSPK ] Failed to open /dev/console: Permission denied
+00000000000e[PCSPK ] Deactivating beep on console
+00000000000i[PLUGIN] init_dev of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] init_dev of 'parallel' plugin device by virtual method
+00000000000i[PAR   ] parallel port 1 at 0x0378 irq 7
+00000000000i[PLUGIN] init_dev of 'serial' plugin device by virtual method
+00000000000i[SER   ] com1 at 0x03f8 irq 4 (mode: null)
+00000000000i[PLUGIN] init_dev of 'iodebug' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci2isa' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'cmos' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'dma' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'vga' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'floppy' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'speaker' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'parallel' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'serial' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'iodebug' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'acpi' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'ioapic' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'keyboard' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'harddrv' plugin device by virtual method
+00000000000i[PLUGIN] register state of 'pci_ide' plugin device by virtual method
+00000000000i[SYS   ] bx_pc_system_c::Reset(HARDWARE) called
+00000000000i[CPU0  ] cpu hardware reset
+00000000000i[APIC0 ] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
+00000000000i[CPU0  ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
+00000000000i[CPU0  ] CPUID[0x00000001]: 00000633 00010800 00000008 1fcbfbff
+00000000000i[CPU0  ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
+00000000000i[CPU0  ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
+00000000000i[PLUGIN] reset of 'pci' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pci2isa' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'cmos' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'dma' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pic' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pit' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'vga' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'floppy' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'acpi' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'ioapic' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'keyboard' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'harddrv' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'pci_ide' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'unmapped' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'biosdev' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'speaker' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'extfpuirq' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'parallel' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'serial' plugin device by virtual method
+00000000000i[PLUGIN] reset of 'iodebug' plugin device by virtual method
+00000000000i[      ] set SIGINT handler to bx_debug_ctrlc_handler
+Next at t=0
+(0) [0x0000fffffff0] f000:fff0 (unk. ctxt): jmpf 0xf000:e05b          ; ea5be000f0
+<bochs:1> break 0x7c00
+<bochs:2> load-symbols
+:2: syntax error at 'load'
+<bochs:3> ldsm
+:3: syntax error at 'ldsm'
+<bochs:4> load-symbols kernel.elf.sym
+:4: syntax error at 'load'
+<bochs:5> ldsym kernel.elf.sym 
+:5: syntax error at 'kernel'
+<bochs:6> ldsym global "kernel.elf.sym"
+<bochs:7> break idt_initialize
+:7: syntax error at 'idt_initialize'
+<bochs:8> break 0x161b
+<bochs:9> c
+00000004661i[BIOS  ] $Revision: 12579 $ $Date: 2014-12-26 11:31:39 +0100 (Fr, 26. Dez 2014) $
+00000323041i[KBD   ] reset-disable command received
+00000325810i[BIOS  ] Starting rombios32
+00000326248i[BIOS  ] Shutdown flag 0
+00000326831i[BIOS  ] ram_size=0x02000000
+00000327252i[BIOS  ] ram_end=32MB
+00000367752i[BIOS  ] Found 1 cpu(s)
+00000381956i[BIOS  ] bios_table_addr: 0x000fa498 end=0x000fcc00
+00000709751i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001037680i[P2ISA ] PCI IRQ routing: PIRQA# set to 0x0b
+00001037699i[P2ISA ] PCI IRQ routing: PIRQB# set to 0x09
+00001037718i[P2ISA ] PCI IRQ routing: PIRQC# set to 0x0b
+00001037737i[P2ISA ] PCI IRQ routing: PIRQD# set to 0x09
+00001037747i[P2ISA ] write: ELCR2 = 0x0a
+00001038517i[BIOS  ] PIIX3/PIIX4 init: elcr=00 0a
+00001046198i[BIOS  ] PCI: bus=0 devfn=0x00: vendor_id=0x8086 device_id=0x1237 class=0x0600
+00001048477i[BIOS  ] PCI: bus=0 devfn=0x08: vendor_id=0x8086 device_id=0x7000 class=0x0601
+00001050595i[BIOS  ] PCI: bus=0 devfn=0x09: vendor_id=0x8086 device_id=0x7010 class=0x0101
+00001050820i[PIDE  ] new BM-DMA address: 0xc000
+00001051436i[BIOS  ] region 4: 0x0000c000
+00001053470i[BIOS  ] PCI: bus=0 devfn=0x0b: vendor_id=0x8086 device_id=0x7113 class=0x0680
+00001053702i[ACPI  ] new irq line = 11
+00001053714i[ACPI  ] new irq line = 9
+00001053739i[ACPI  ] new PM base address: 0xb000
+00001053753i[ACPI  ] new SM base address: 0xb100
+00001053781i[PCI   ] setting SMRAM control register to 0x4a
+00001217874i[CPU0  ] Enter to System Management Mode
+00001217885i[CPU0  ] RSM: Resuming from System Management Mode
+00001381906i[PCI   ] setting SMRAM control register to 0x0a
+00001396772i[BIOS  ] MP table addr=0x000fa570 MPC table addr=0x000fa4a0 size=0xc8
+00001398594i[BIOS  ] SMBIOS table addr=0x000fa580
+00001400775i[BIOS  ] ACPI tables: RSDP addr=0x000fa6a0 ACPI DATA addr=0x01ff0000 size=0xf72
+00001403987i[BIOS  ] Firmware waking vector 0x1ff00cc
+00001405782i[PCI   ] i440FX PMC write to PAM register 59 (TLB Flush)
+00001406505i[BIOS  ] bios_table_cur_addr: 0x000fa6c4
+00001534122i[VBIOS ] VGABios $Id: vgabios.c,v 1.76 2013/02/10 08:07:03 vruppert Exp $
+00001534193i[BXVGA ] VBE known Display Interface b0c0
+00001534225i[BXVGA ] VBE known Display Interface b0c5
+00001537150i[VBIOS ] VBE Bios $Id: vbe.c,v 1.65 2014/07/08 18:02:25 vruppert Exp $
+00001796356i[XGUI  ] charmap update. Font Height is 16
+00014040198i[BIOS  ] Booting from 0000:7c00
+(0) Breakpoint 1, 0x00007c00 in ?? ()
+Next at t=14040253
+(0) [0x000000007c00] 0000:7c00 (no symbol): mov byte ptr ds:0x7d2a, dl ; 88162a7d
+<bochs:10> c
+(0) Breakpoint 2, 0x0000161b in ?? ()
+Next at t=15370914
+(0) [0x00000000161b] 0008:0000161b (idt_initialize+0): push ebp                  ; 55
+<bochs:11> n
+Next at t=15370915
+(0) [0x00000000161c] 0008:0000161c (idt_initialize+1): mov ebp, esp              ; 89e5
+<bochs:12> break 0x1562
+<bochs:13> c
+(0) Breakpoint 3, 0x00001562 in ?? ()
+Next at t=15396097
+(0) [0x000000001562] 0008:00001562 (idt_install+0): push ebp                  ; 55
+<bochs:14> s
+Next at t=15396098
+(0) [0x000000001563] 0008:00001563 (idt_install+1): mov ebp, esp              ; 89e5
+<bochs:15> 
+Next at t=15396099
+(0) [0x000000001565] 0008:00001565 (idt_install+3): sub esp, 0x00000008       ; 83ec08
+<bochs:16> 
+Next at t=15396100
+(0) [0x000000001568] 0008:00001568 (idt_install+6): sub esp, 0x0000000c       ; 83ec0c
+<bochs:17> 
+Next at t=15396101
+(0) [0x00000000156b] 0008:0000156b (idt_install+9): push 0x00002084           ; 6884200000
+<bochs:18> 
+Next at t=15396102
+(0) [0x000000001570] 0008:00001570 (idt_install+e): call .-253 (0x00001478)   ; e803ffffff
+<bochs:19> n
+Next at t=15406074
+(0) [0x000000001575] 0008:00001575 (idt_install+13): add esp, 0x00000010       ; 83c410
+<bochs:20> s
+Next at t=15406075
+(0) [0x000000001578] 0008:00001578 (idt_install+16): mov eax, dword ptr ss:[ebp+8] ; 8b4508
+<bochs:21> 
+Next at t=15406076
+(0) [0x00000000157b] 0008:0000157b (idt_install+19): lidt ds:[eax]             ; 0f0118
+<bochs:22> info reg
+:22: syntax error at 'reg'
+<bochs:23> info registers
+:23: syntax error at 'registers'
+<bochs:24> r
+eax: 0x00005018 20504
+ecx: 0x0000040e 1038
+edx: 0x00000028 40
+ebx: 0x00007d49 32073
+esp: 0x0008ff60 589664
+ebp: 0x0008ff68 589672
+esi: 0x000e0000 917504
+edi: 0x0000ffac 65452
+eip: 0x0000157b
+eflags 0x00000006: id vip vif ac vm rf nt IOPL=0 of df if tf sf zf af PF cf
+<bochs:25> creg
+CR0=0x60000011: pg CD NW ac wp ne ET ts em mp PE
+CR2=page fault laddr=0x00000000
+CR3=0x000000000000
+    PCD=page-level cache disable=0
+    PWT=page-level write-through=0
+CR4=0x00000000: smap smep osxsave pcid fsgsbase smx vmx osxmmexcpt osfxsr pce pge mce pae pse de tsd pvi vme
+EFER=0x00000000: ffxsr nxe lma lme sce
+<bochs:26> sreg
+es:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+cs:0x0008, dh=0x00cf9b00, dl=0x0000ffff, valid=1
+	Code segment, base=0x00000000, limit=0xffffffff, Execute/Read, Non-Conforming, Accessed, 32-bit
+ss:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=31
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+ds:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=31
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+fs:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+gs:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+ldtr:0x0000, dh=0x00008200, dl=0x0000ffff, valid=1
+tr:0x0000, dh=0x00008b00, dl=0x0000ffff, valid=1
+gdtr:base=0x00000000, limit=0x0
+idtr:base=0x00000000, limit=0x3ff
+<bochs:27> u
+bx_dbg_read_pmode_descriptor: selector (0x0008) > GDT size limit
+00000000: (                    ): push ebx                  ; 53
+<bochs:28> s
+Next at t=15406077
+(0) [0x00000000157e] 0008:0000157e (idt_install+1c): nop                       ; 90
+<bochs:29> sreg    
+es:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+cs:0x0008, dh=0x00cf9b00, dl=0x0000ffff, valid=1
+	Code segment, base=0x00000000, limit=0xffffffff, Execute/Read, Non-Conforming, Accessed, 32-bit
+ss:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=31
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+ds:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=31
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+fs:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+gs:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+ldtr:0x0000, dh=0x00008200, dl=0x0000ffff, valid=1
+tr:0x0000, dh=0x00008b00, dl=0x0000ffff, valid=1
+gdtr:base=0x00000000, limit=0x0
+idtr:base=0x00004820, limit=0x7f7
+<bochs:30> x/10g 0x4820
+[bochs]:
+error: dbg_examine: 'g' (8-byte) unit size not supported.
+<bochs:31> x/10w 0x4820
+[bochs]:
+0x00004820 <bogus+       0>:	0x00081544	0x00008e00	0x00081544	0x00008e00
+0x00004830 <bogus+      16>:	0x00081544	0x00008e00	0x00081544	0x00008e00
+0x00004840 <bogus+      32>:	0x00081544	0x00008e00
+<bochs:32> s        
+Next at t=15406078
+(0) [0x00000000157f] 0008:0000157f (idt_install+1d): leave                     ; c9
+<bochs:33> 
+Next at t=15406079
+(0) [0x000000001580] 0008:00001580 (idt_install+1e): ret                       ; c3
+<bochs:34> 
+Next at t=15406080
+(0) [0x00000000169c] 0008:0000169c (idt_initialize+81): add esp, 0x00000010       ; 83c410
+<bochs:35> 
+Next at t=15406081
+(0) [0x00000000169f] 0008:0000169f (idt_initialize+84): sub esp, 0x0000000c       ; 83ec0c
+<bochs:36> 
+Next at t=15406082
+(0) [0x0000000016a2] 0008:000016a2 (idt_initialize+87): push 0x00000002           ; 6a02
+<bochs:37> b 0x151c
+<bochs:38> s
+Next at t=15406083
+(0) [0x0000000016a4] 0008:000016a4 (idt_initialize+89): call .-397 (0x0000151c)   ; e873feffff
+<bochs:39> 
+Next at t=15406084
+(0) [0x00000000151c] 0008:0000151c (generate_interrupt+0): push ebp                  ; 55
+<bochs:40> 
+Next at t=15406085
+(0) [0x00000000151d] 0008:0000151d (generate_interrupt+1): mov ebp, esp              ; 89e5
+<bochs:41> 
+Next at t=15406086
+(0) [0x00000000151f] 0008:0000151f (generate_interrupt+3): sub esp, 0x00000028       ; 83ec28
+<bochs:42> 
+Next at t=15406087
+(0) [0x000000001522] 0008:00001522 (generate_interrupt+6): mov eax, dword ptr ss:[ebp+8] ; 8b4508
+<bochs:43> 
+Next at t=15406088
+(0) [0x000000001525] 0008:00001525 (generate_interrupt+9): mov byte ptr ss:[ebp-28], al ; 8845e4
+<bochs:44> r
+eax: 0x00000002 2
+ecx: 0x0000040e 1038
+edx: 0x00000028 40
+ebx: 0x00007d49 32073
+esp: 0x0008ff40 589632
+ebp: 0x0008ff68 589672
+esi: 0x000e0000 917504
+edi: 0x0000ffac 65452
+eip: 0x00001525
+eflags 0x00000002: id vip vif ac vm rf nt IOPL=0 of df if tf sf zf af pf cf
+<bochs:45> s
+Next at t=15406089
+(0) [0x000000001528] 0008:00001528 (generate_interrupt+c): movzx eax, byte ptr ss:[ebp-28] ; 0fb645e4
+<bochs:46> s          
+Next at t=15406090
+(0) [0x00000000152c] 0008:0000152c (generate_interrupt+10): mov dword ptr ss:[ebp-12], eax ; 8945f4
+<bochs:47> r
+eax: 0x00000002 2
+ecx: 0x0000040e 1038
+edx: 0x00000028 40
+ebx: 0x00007d49 32073
+esp: 0x0008ff40 589632
+ebp: 0x0008ff68 589672
+esi: 0x000e0000 917504
+edi: 0x0000ffac 65452
+eip: 0x0000152c
+eflags 0x00000002: id vip vif ac vm rf nt IOPL=0 of df if tf sf zf af pf cf
+<bochs:48> sreg
+es:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+cs:0x0008, dh=0x00cf9b00, dl=0x0000ffff, valid=1
+	Code segment, base=0x00000000, limit=0xffffffff, Execute/Read, Non-Conforming, Accessed, 32-bit
+ss:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=31
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+ds:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=31
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+fs:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+gs:0x0010, dh=0x00cf9300, dl=0x0000ffff, valid=1
+	Data segment, base=0x00000000, limit=0xffffffff, Read/Write, Accessed
+ldtr:0x0000, dh=0x00008200, dl=0x0000ffff, valid=1
+tr:0x0000, dh=0x00008b00, dl=0x0000ffff, valid=1
+gdtr:base=0x00000000, limit=0x0
+idtr:base=0x00004820, limit=0x7f7
+<bochs:49> x/2w 0x0010:8ff48
+bx_dbg_read_pmode_descriptor: selector (0x0010) > GDT size limit
+:49: syntax error at 'ff48'
+<bochs:50> x/2w 0x0010:0x8ff48
+bx_dbg_read_pmode_descriptor: selector (0x0010) > GDT size limit
+[bochs]:
+0x00000000 <bogus+       0>:	0xf000ff53	0xf000ff53
+<bochs:51> x/2w 0x0010:0x8ff36
+bx_dbg_read_pmode_descriptor: selector (0x0010) > GDT size limit
+[bochs]:
+0x00000000 <bogus+       0>:	0xf000ff53	0xf000ff53
+<bochs:52> x/10b 0x0010:0x8ff36
+bx_dbg_read_pmode_descriptor: selector (0x0010) > GDT size limit
+[bochs]:
+0x00000000 <bogus+       0>:	0x53	0xff	0x00	0xf0	0x53	0xff	0x00	0xf0
+0x00000008 <bogus+       8>:	0x53	0xff
+<bochs:53> x/10b 0xff53
+[bochs]:
+0x0000ff53 <bogus+       0>:	0xff	0x00	0x00	0x7c	0xff	0x40	0x00	0x90
+0x0000ff5b <bogus+       8>:	0x00	0x66
+<bochs:54> s
+Next at t=15406091
+(0) [0x00000000152f] 0008:0000152f (generate_interrupt+13): sub esp, 0x0000000c       ; 83ec0c
+<bochs:55> x/10b 0xff53
+[bochs]:
+0x0000ff53 <bogus+       0>:	0xff	0x00	0x00	0x7c	0xff	0x40	0x00	0x90
+0x0000ff5b <bogus+       8>:	0x00	0x66
+<bochs:56> x/10b 0x0010:0x8ff36
+bx_dbg_read_pmode_descriptor: selector (0x0010) > GDT size limit
+[bochs]:
+0x00000000 <bogus+       0>:	0x53	0xff	0x00	0xf0	0x53	0xff	0x00	0xf0
+0x00000008 <bogus+       8>:	0x53	0xff
+<bochs:57> s
+Next at t=15406092
+(0) [0x000000001532] 0008:00001532 (generate_interrupt+16): push 0x00002040           ; 6840200000
+<bochs:58> s
+Next at t=15406093
+(0) [0x000000001537] 0008:00001537 (generate_interrupt+1b): call .-196 (0x00001478)   ; e83cffffff
+<bochs:59> n
+Next at t=15411391
+(0) [0x00000000153c] 0008:0000153c (generate_interrupt+20): add esp, 0x00000010       ; 83c410
+<bochs:60> s
+Next at t=15411392
+(0) [0x00000000153f] 0008:0000153f (generate_interrupt+23): int 0x02                  ; cd02
+<bochs:61> show
+show mask is: 0
+<bochs:62> show int
+show interrupts tracing (extint/softint/iret): ON
+show mask is: softint extint iret
+<bochs:63> show mode
+show mode switch: ON
+show mask is: softint extint iret mode
+<bochs:64> show ret 
+Unrecognized arg: ret (only 'mode', 'int', 'softint', 'extint', 'iret', 'call', 'all', 'off', 'dbg_all' and 'dbg_none' are valid)
+<bochs:65> show dbg-all
+:65: syntax error at '-'
+<bochs:66> show dbg_all
+Turned ON all bx_dbg flags
+<bochs:67> s
+CPU 0: Interrupt 0x02 occured (error_code=0x0000)
+00015411392e[CPU0  ] fetch_raw_descriptor: GDT: index (f) 1 > limit (0)
+CPU 0: Exception 0x0d - (#GP) general protection fault occured (error_code=0x0008)
+CPU 0: Interrupt 0x0d occured (error_code=0x0008)
+00015411392e[CPU0  ] fetch_raw_descriptor: GDT: index (f) 1 > limit (0)
+CPU 0: Exception 0x0d - (#GP) general protection fault occured (error_code=0x0009)
+CPU 0: Exception 0x08 - (#DF) double fault occured (error_code=0x0000)
+CPU 0: Interrupt 0x08 occured (error_code=0x0000)
+00015411392e[CPU0  ] fetch_raw_descriptor: GDT: index (f) 1 > limit (0)
+CPU 0: Exception 0x0d - (#GP) general protection fault occured (error_code=0x0009)
+00015411392i[CPU0  ] CPU is in protected mode (active)
+00015411392i[CPU0  ] CS.mode = 32 bit
+00015411392i[CPU0  ] SS.mode = 32 bit
+00015411392i[CPU0  ] EFER   = 0x00000000
+00015411392i[CPU0  ] | EAX=00000000  EBX=00007d49  ECX=00000488  EDX=00000015
+00015411392i[CPU0  ] | ESP=0008ff40  EBP=0008ff68  ESI=000e0000  EDI=0000ffac
+00015411392i[CPU0  ] | IOPL=0 id vip vif ac vm RF nt of df if tf sf zf af pf cf
+00015411392i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+00015411392i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+00015411392i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00015411392i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00015411392i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00015411392i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00015411392i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+00015411392i[CPU0  ] | EIP=0000153f (0000153f)
+00015411392i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
+00015411392i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+(0).[15411392] [0x00000000153f] 0008:0000153f (generate_interrupt+23): int 0x02                  ; cd02
+00015411392e[CPU0  ] exception(): 3rd (13) exception with no resolution, shutdown status is 00h, resetting
+00015411392i[SYS   ] bx_pc_system_c::Reset(HARDWARE) called
+00015411392i[CPU0  ] cpu hardware reset
+00015411392i[APIC0 ] allocate APIC id=0 (MMIO enabled) to 0x0000fee00000
+00015411392i[CPU0  ] CPUID[0x00000000]: 00000005 756e6547 6c65746e 49656e69
+00015411392i[CPU0  ] CPUID[0x00000001]: 00000633 00010800 00000008 1fcbfbff
+00015411392i[CPU0  ] CPUID[0x00000002]: 00410601 00000000 00000000 00000000
+00015411392i[CPU0  ] CPUID[0x00000003]: 00000000 00000000 00000000 00000000
+00015411392i[CPU0  ] CPUID[0x00000004]: 00000000 00000000 00000000 00000000
+00015411392i[CPU0  ] CPUID[0x00000005]: 00000040 00000040 00000003 00000020
+00015411392i[PLUGIN] reset of 'pci' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'pci2isa' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'cmos' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'dma' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'pic' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'pit' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'vga' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'floppy' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'acpi' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'ioapic' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'keyboard' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'harddrv' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'pci_ide' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'unmapped' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'biosdev' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'speaker' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'extfpuirq' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'parallel' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'serial' plugin device by virtual method
+00015411392i[PLUGIN] reset of 'iodebug' plugin device by virtual method
+Next at t=15411393
+(0) [0x0000fffffff0] f000:fff0 (no symbol): jmpf 0xf000:e05b          ; ea5be000f0
+
