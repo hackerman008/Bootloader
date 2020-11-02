@@ -17,10 +17,25 @@ KERNEL_OFFSET equ 0x1000  ;memory offset to which we will load the kernel
 	mov bx, MSG_LOAD_KERNEL2
 	call print_string
 
+	; checking for low memory
+	;---------------------------------------;
+	; int 0x12				
+	; return AX = total number of KB 
+     	; AX value measures from 0 to bottom of extended BIOS data area
+	;---------------------------------------;
+
+	clc 
+	int 0x12
+	jc .Error
+
 	call switch_to_pm  ; switch to protected mode
 
 	jmp $
 
+.Error:
+	mov bx, ERROR_LOW_MEM
+	call print_string
+	
 
 ;include files
 %include "print_string.asm"
@@ -57,6 +72,7 @@ MSG_REAL_MODE	db "started in 16 bit real mode",0xd, 0xa,0
 MSG_PROT_MODE	db "successfully landed in 32-bit protected mode",0xd,0xa,0
 MSG_LOAD_KERNEL	db "loading kenel into memeory.",0xd, 0xa, 0
 MSG_LOAD_KERNEL2	db "kernel load function done.",0xd, 0xa, 0
+ERROR_LOW_MEM	db "failed to get low memory size",0xd, 0xa, 0
 
 ; bootsector padding
 times 510 -($-$$) db 0
