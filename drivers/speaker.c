@@ -1,7 +1,3 @@
- /* My first kernel , will call the print functiont to print string on
- * screen. *
- * */
-
 #include "../include/stdint.h"
 extern void wait(uint8_t time_sec);
 

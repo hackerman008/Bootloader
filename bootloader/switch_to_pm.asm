@@ -10,14 +10,21 @@ switch_to_pm:
 			; until we set up interrupt vector for protected
 			; mode 
 	lgdt [gdt_descriptor]
+
+	;*******************
+	; testing memeory map func
+	;
+	;*******************
+
+;	call get_memory_map
 	
 	mov eax, cr0	; we cannot directly set cr0
 	or eax, 0x1
 	mov cr0, eax
 
-	jmp CODE_SEG:init_pm	; make a far jmp (i.e to a new segment) to				  ; our 32 bit code. this also forces the 
-				; CPU to flush its cache of pre-fetched 
-				; and real-mode decoded instructions which				  ; can cause problems
+	jmp CODE_SEG:init_pm	; make a far jmp (i.e to a new segment) to our 32 bit code. this also forces the CPU to flush its cache of pre-fetched 					and real-mode decoded instructions.
+
+;%include "get_memory_map.asm"
 
 [bits 32]
 ; initialize registers and the stack once in PM
@@ -32,5 +39,5 @@ init_pm:
 	mov ebp, 0x90000	;set stack safely at the top of freespace
 	mov esp, ebp
 	
-	call BEGIN_PM		; finally call some know label
+	call begin_pm	
 

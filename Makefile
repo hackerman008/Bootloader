@@ -1,50 +1,60 @@
+symbol_file: all
+
 C_SOURCES = $(wildcard kernel/*.c drivers/*.c hal/*.c)
 HEADERS = $(wildcard kernel/*.h drivers/*.h hal/*.h include/*.h)
 ASM_SOURCES_WITH_EXTERN = $(wildcard drivers/*.asm)
-BOOT_SECTOR = $(wildcard boot_sect.asm)
+BOOTLOADER = ${wildcard bootloader/stage1.asm bootloader/stage2_new.asm}
 
 OBJ = ${C_SOURCES:.c=.o}
 OBJ2 = ${ASM_SOURCES_WITH_EXTERN:.asm=.o}
-OBJ_BOOT_SECT = ${BOOT_SECTOR:.asm=.o}
+OBJ3 = ${BOOTLOADER:.asm=.bin}
 
-symbol_file: all
+all: copy_to_disk
 	bash script.sh kernel.elf
 
-all: ${OBJ2} kernel.bin kernel.elf kernel.sym os-image final_image
+copy_to_disk: ${OBJ3} ${OBJ2} kernel.bin kernel.elf kernel.sym
+	sudo dd if=/dev/zero of=hdd.img bs=516096c count=1000
+	(echo n; echo p; echo 1; echo ""; echo ""; echo t; echo c; echo a; echo 1; echo w;) | sudo fdisk -u -C1000 -S63 -H16 hdd.img
+	sudo dd if=bootloader/stage1.bin of=hdd.img conv=notrunc
+	sudo dd if=bootloader/stage2_new.bin of=hdd.img seek=1 conv=notrunc
+	sudo losetup -o1048576 /dev/loop1 hdd.img
+	sudo mkdosfs -v -F32 /dev/loop1
+	sudo mount /dev/loop1 /mnt/mount_temp
+	sudo cp kernel.bin /mnt/mount_temp
+	sudo umount /dev/loop1
+	sudo losetup -d /dev/loop1
+
+
+${OBJ2}: ${ASM_SOURCES_WITH_EXTERN}				# assembly files are required 
+	nasm $< -f elf -o $@					# for compilation the C files
+
+kernel.bin: kernel_entry.o ${OBJ} ${OBJ2} 
+	ld -m elf_i386 $^ -Ttext 0x1000 --oformat binary -o $@ 	
+
+kernel.elf: kernel_entry.o ${OBJ} ${OBJ2} 
+	ld -m elf_i386 $^ -Ttext 0x1000 -o $@ 			
 
 kernel.sym: kernel.elf
 	objcopy --only-keep-debug $< $@
 
-${OBJ2}: ${ASM_SOURCES_WITH_EXTERN}	# assembly files are required 
-	nasm $< -f elf -o $@		#for compilation the C files 
-					# -elf64 rmoved
-
-os-image: boot_sect.bin kernel.bin
-	cat $^ > os-image		# $^ = dependencies
-
-final_image: os-image
-	dd if=/dev/zero bs=1 count=2560 >> os-image
-
-kernel.bin: kernel_entry.o ${OBJ} ${OBJ2} 
-	ld -m elf_i386 $^ -Ttext 0x1000 --oformat binary -o $@ #--oformat -binary removed
-
-
-kernel.elf: kernel_entry.o ${OBJ} ${OBJ2} 
-	ld -m elf_i386 $^ -Ttext 0x1000 -o $@ #--oformat -binary removed
-
 %.o : %.c ${HEADERS} 
-	gcc -m32 -fno-pie -g -c $< -o $@	#-m32 added #-ffreestandin removed
+	gcc -m32 -fno-pie -g -c $< -o $@			#-m32 & -fno-pie added 
 
 %.o : %.asm
-	nasm $< -f elf -o $@		# -el64 option removed
+	nasm $< -f elf -o $@	
+
 %.bin : %.asm
 	nasm $< -f bin -o $@
 
-clean:
-	rm -fr *bin *.dis *.o *.elf *.sym os-image 
-	rm -fr kernel/*.o boot/*.bin drivers/*.o
 #disassemble out kernel , might be usefull for debugging
 kernel.dis: kernel.bin
 	ndisasm -b 32 $< > $@
+
+
+clean:
+	rm -fr *bin *.dis *.o *.elf *.sym os-image 
+	rm -fr kernel/*.o boot/*.bin bootloader/*.bin drivers/*.o
+
+
 
 

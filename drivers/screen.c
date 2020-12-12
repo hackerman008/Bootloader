@@ -13,7 +13,7 @@ int get_screen_offset(int col, int row)
 {
 	int offset = (row * 80 + col)*2;	// gives the offset derived from row and
 				// column
-	/*now we will use that offset to set the cursor to that place
+	/* use offset to set the cursor to that place
 	  returnt the offset*/
 	port_byte_out(REG_SCREEN_CTRL, 14);
 	port_byte_out(REG_SCREEN_DATA,(unsigned char)(offset >> 8));
