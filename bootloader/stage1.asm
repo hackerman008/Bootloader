@@ -19,11 +19,6 @@ bootloader_stage1:
 	mov ss, ax
 	mov sp, 0x9000
 
-	; maybe the org directive works here
-	; setting data segment
-	;mov ax, 0x7c0			; ? required when using org directive ?
-	;mov ds, ax
-
 	; clear screen
 	mov ah, 0x6			; function number 
 	xor al, al			; lines to scroll 0 = clear
@@ -50,7 +45,7 @@ bootloader_stage1:
 	jc extension_not_supported
 
 	; load the second stage bootloader from disk
-	mov ah, 0x42			; functiont for reading extended sector functionality
+	mov ah, 0x42			; function for reading extended sector functionality
 	mov si, DAPACK			; disk address packet struct
 	mov dl, 0x80			; drive index (0x08 = HDD)
 	int 0x13
@@ -75,10 +70,10 @@ d_lba:	dd	1		; put the lba to read in this spot
 ;.size		db 0x10		; structure size
 ;.null		db 0x0		; reserved
 ;.count		dw 0x6		; num.of sectors to read
-;.offset		dw 0x0		; offset where the stage2 bootloader will be loaded
+;.offset	dw 0x0		; offset where the stage2 bootloader will be loaded
 ;.segment	dw 0x8c0	; segment where the stage 2 bootloader will be loaded
 ;.lba		dd 0x1		; absolute sector number from where to start reading sectors
-;.lba48		dd 0		; ?
+;.lba48		dd 0	
 
 extension_not_supported:
 	mov bx, EXTENDED_READ_NOT_SUPPORTED

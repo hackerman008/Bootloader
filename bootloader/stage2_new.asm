@@ -1,20 +1,17 @@
 ;********************************************************************
-; d1. loads sector 0 again at segment:offset & jumps to it
-; d2. go to offset 446+8 from segment:offset & read the 2 byte value (i.e
+; 1. loads sector 0  at segment:offset & jumps to it
+; 2. go to offset 446+8 from segment:offset & read the 2 byte value (i.e
 ;	the root directory entry cluster number)
-; d3. goes to the root directory entry and reads the entry & increment by
+; 3. goes to the root directory entry and reads the entry & increment by
 ;	32 bytes if not match for the next entry
-; d4. reads the filename and cluster number where the kernel begins.
-; d5. converts cluster number to LBA.
-; d6. loads the file at the specified LBA at a segment:offset & jumps to 
+; 4. reads the filename and cluster number where the kernel begins.
+; 5. converts cluster number to LBA.
+; 6. loads the file at the specified LBA at a segment:offset & jumps to 
 ;	the specified offset.
-; d7.Keep loading contents of file using FAT entries & then jump to the 
+; 7.Keep loading contents of file using FAT entries & then jump to the 
 ;	execution.
 ;********************************************************************
 
-;todo : .kernel is loading but the next cluster is not getting loaded check again ? 
-;	.still having the above problem . find proper logic
-; 	. also gate descriptro error
 [ORG 0x4000]
 [BITS 16]
 
@@ -140,7 +137,7 @@ stage2_new:
 	je root_descriptor_entry_not_found
 	jmp .next
 
-;; Conver the cluster number to LBA and load the sector, then use the FAT entry to locate the next sector or if the file ends
+
 .next_stage:
 	mov bx, word [CLUSTER_HIGH]
 	shr ebx, 4			; move by 4  to accomodate the low bits
@@ -223,7 +220,6 @@ stage2_new:
 	add word [DAP.offset], 0x1000 
 	mov ecx, dword [gs:(si+bx)]
 	mov eax, ecx
-	;; convert cluster number in ecx to lba and load file at offset after the first cluster was loaded
 	ret
 
  
@@ -232,7 +228,6 @@ stage2_new:
 	call switch_to_pm
 	jmp begin_pm																													 
 [bits 32]
-;; jmp to kernel segment:offset
 begin_pm:
 	jmp KERNEL_OFFSET_ADDRESS			; kernel offset
 	
