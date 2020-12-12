@@ -1,6 +1,8 @@
 # Basic operating system
 NOTE: still in development
 
+![Alt text](basic_operating_system_screenshot.png?raw=true "OS image")
+
 ## FEATURES
 1. 2 stage bootloader to load files from FAT32 file system
 2. Fat32 file system
