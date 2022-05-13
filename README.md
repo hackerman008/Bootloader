@@ -1,4 +1,4 @@
-# Basic operating system
+# Basic Bootloader
 NOTE: still in development
 
 ![Alt text](basic_operating_system_screenshot.png?raw=true "OS image")
